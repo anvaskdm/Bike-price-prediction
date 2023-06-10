@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Used bikes prediction india</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+<div class="img"></div>
+<form class="form" action="{{ url_for('predict_price') }}" method="POST">
+    <select class="location" name="model" id="uiLocations">
+        <option value="" disabled="disabled" selected="selected">Choose a Bike model</option>
+            {% for model in models %}
+            <option>{{model}}</option>
+            {% endfor %}
+    </select>
+	<h2>owner</h2>
+    <input class="area"  type="number" id="uiSqft" class="floatLabel" name="owner" value="1"> 
+	<div class="switch-field">
+      
+	</div>
+	<h2>POWER</h2>
+    <input class="area"  type="number" id="uiSqft" class="floatLabel" name="power" value="150">    
+    <h2>Kilo Meter Driven</h2>
+    <input class="area"  type="number" id="uiSqft" class="floatLabel" name="kms_drv" value="1000">
+    <h2>AGE</h2>
+    <input class="area"  type="number" id="uiSqft" class="floatLabel" name="age" value="5">    
+	
+
+
+	<h2>CITY</h2>
+	<div>
+    <select class="location" name="place" id="uiLocations">
+        <option value="" disabled="disabled" selected="selected">Choose the location you are looking</option>
+            {% for place in places %}
+                <option>{{place}}</option>
+            {% endfor %}
+        </select>
+               
+</div>
+    <input class="btn btn-outline-success" type="submit" value="Calculate price">          
+</form>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
